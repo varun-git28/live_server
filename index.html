@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Live Server:</title>
+</head>
+<body>
+<h2>Live Camera:</h2>
+<video id="video" width="640" height="480" preload autoplay loop muted class="merge"></video>
+<script type="text/javascript">
+	var video = document.getElementById('video');
+	navigator.mediaDevices.getUserMedia({
+			video: true,
+			audio: false
+		})
+		.then(function(stream) {
+			video.srcObject = stream;
+			video.play();
+			localStream = stream;
+		})
+		.catch(function(err) {
+			//console.log("An error occurred: " + err);
+		});	
+
+</script>
+</body>
+</html>
